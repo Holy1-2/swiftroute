@@ -1,4 +1,10 @@
-# React + Vite
+# SwiftRoute
+
+This is the first startup of the SwiftRoute project.
+
+---
+
+## React + Vite Setup
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
