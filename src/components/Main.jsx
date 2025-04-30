@@ -158,76 +158,317 @@ const Home = () => {
       </section>
 
       {/* Features Grid */}
-      <section id="features" className="bg-gray-800 py-20">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-          <div className="p-6 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-colors">
-            <i className="fas fa-dashboard text-4xl text-teal-400 mb-4"></i>
-            <h3 className="text-xl font-bold mb-2">Driver Real Time Dashboard</h3>
-            <p className="text-gray-400">
-              Drivers can view packages assigned to their vehicle, scan QR codes, and update delivery statuses in real time, streamlining on-the-go operations.
-            </p>
-          </div>
-          <div className="p-6 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-colors">
-            <i className="fas fa-box text-4xl text-teal-400 mb-4"></i>
-            <h3 className="text-xl font-bold mb-2">Real-Time Packages Tracking</h3>
-            <p className="text-gray-400">
-              Monitor your packages on an interactive map with live location updates, ensuring a seamless and efficient delivery experience.
-            </p>
-          </div>
-          <div className="p-6 bg-gray-700/30 rounded-xl hover:bg-gray-700/50 transition-colors">
-            <i className="fas fa-tachometer text-4xl text-teal-400 mb-4"></i>
-            <h3 className="text-xl font-bold mb-2">Admin & Company Dashboard</h3>
-            <p className="text-gray-400">
-              Manage your entire operation from a centralized dashboard—add packages to the system, track driver locations, generate reports, and more.
-            </p>
+      <section id="features" className="py-28 bg-gray-900">
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="text-center mb-20">
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        className="text-5xl font-bold mb-6"
+      >
+        <span className="bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">
+          Powerful Features
+        </span> for Seamless Logistics
+      </motion.h2>
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        className="text-xl text-gray-400 max-w-3xl mx-auto"
+      >
+        Advanced tools designed to optimize your entire delivery ecosystem
+      </motion.p>
+    </div>
+
+    <div className="space-y-24">
+      {/* Feature 1 - Driver Dashboard */}
+      <motion.div 
+        className="grid lg:grid-cols-2 gap-16 items-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+      >
+        <div className="relative">
+          <div className="absolute -inset-8 bg-gradient-to-r from-teal-400/10 to-blue-400/10 rounded-3xl -z-10"/>
+          <div className="rounded-2xl overflow-hidden border border-gray-700/50 shadow-2xl">
+            <img 
+              src="/DD.PNG" 
+              alt="Driver Dashboard Interface" 
+              className="w-full h-auto"
+            />
           </div>
         </div>
-      </section>
+        <div>
+          <div className="flex items-center mb-6">
+            <div className="w-14 h-14 bg-teal-400/10 rounded-xl flex items-center justify-center mr-6">
+              <i className="fas fa-tachometer-alt text-2xl text-teal-400"/>
+            </div>
+            <h3 className="text-3xl font-bold">Real-Time Driver Dashboard</h3>
+          </div>
+          <p className="text-gray-400 text-lg mb-8">
+            Empower your drivers with an intuitive interface that displays assigned packages, optimized routes, 
+            and scanning capabilities - all updated in real-time for maximum efficiency.
+          </p>
+          <ul className="space-y-4">
+            <li className="flex items-start">
+              <i className="fas fa-check-circle text-teal-400 mt-1 mr-4"/>
+              <span className="text-gray-300">QR code scanning for instant package updates</span>
+            </li>
+            <li className="flex items-start">
+              <i className="fas fa-check-circle text-teal-400 mt-1 mr-4"/>
+              <span className="text-gray-300">Turn-by-turn navigation integrated with traffic data</span>
+            </li>
+            <li className="flex items-start">
+              <i className="fas fa-check-circle text-teal-400 mt-1 mr-4"/>
+              <span className="text-gray-300">Offline functionality for areas with poor connectivity</span>
+            </li>
+          </ul>
+        </div>
+      </motion.div>
+
+      {/* Feature 2 - Package Tracking */}
+      <motion.div 
+        className="grid lg:grid-cols-2 gap-16 items-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+      >
+        <div className="lg:order-last">
+          <div className="relative">
+            <div className="absolute -inset-8 bg-gradient-to-r from-teal-400/10 to-blue-400/10 rounded-3xl -z-10"/>
+            <div className="rounded-2xl overflow-hidden border border-gray-700/50 shadow-2xl">
+              <img 
+                src="/map.PNG" 
+                alt="Live Package Tracking Map" 
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="lg:order-first">
+          <div className="flex items-center mb-6">
+            <div className="w-14 h-14 bg-teal-400/10 rounded-xl flex items-center justify-center mr-6">
+              <i className="fas fa-map-marked-alt text-2xl text-teal-400"/>
+            </div>
+            <h3 className="text-3xl font-bold">Advanced Package Tracking</h3>
+          </div>
+          <p className="text-gray-400 text-lg mb-8">
+            Gain complete visibility into your shipments with our predictive tracking system that provides 
+            real-time location data and accurate ETAs using AI-powered algorithms.
+          </p>
+          <ul className="space-y-4">
+            <li className="flex items-start">
+              <i className="fas fa-check-circle text-teal-400 mt-1 mr-4"/>
+              <span className="text-gray-300">Interactive map view with live vehicle locations</span>
+            </li>
+            <li className="flex items-start">
+              <i className="fas fa-check-circle text-teal-400 mt-1 mr-4"/>
+              <span className="text-gray-300">Automated customer notifications at key milestones</span>
+            </li>
+            <li className="flex items-start">
+              <i className="fas fa-check-circle text-teal-400 mt-1 mr-4"/>
+              <span className="text-gray-300">Historical data analysis for performance insights</span>
+            </li>
+          </ul>
+        </div>
+      </motion.div>
+
+      {/* Feature 3 - Admin Console */}
+      <motion.div 
+        className="grid lg:grid-cols-2 gap-16 items-center"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+      >
+        <div className="relative">
+          <div className="absolute -inset-8 bg-gradient-to-r from-teal-400/10 to-blue-400/10 rounded-3xl -z-10"/>
+          <div className="rounded-2xl overflow-hidden border border-gray-700/50 shadow-2xl">
+            <img 
+              src="/adm.PNG" 
+              alt="Admin Management Console" 
+              className="w-full h-auto"
+            />
+          </div>
+        </div>
+        <div>
+          <div className="flex items-center mb-6">
+            <div className="w-14 h-14 bg-teal-400/10 rounded-xl flex items-center justify-center mr-6">
+              <i className="fas fa-chart-line text-2xl text-teal-400"/>
+            </div>
+            <h3 className="text-3xl font-bold">Comprehensive Admin Console</h3>
+          </div>
+          <p className="text-gray-400 text-lg mb-8">
+            Take full control of your logistics operations with our centralized management platform that 
+            provides actionable insights and complete fleet visibility.
+          </p>
+          <ul className="space-y-4">
+            <li className="flex items-start">
+              <i className="fas fa-check-circle text-teal-400 mt-1 mr-4"/>
+              <span className="text-gray-300">Real-time driver and package monitoring</span>
+            </li>
+            <li className="flex items-start">
+              <i className="fas fa-check-circle text-teal-400 mt-1 mr-4"/>
+              <span className="text-gray-300">Customizable reports and performance dashboards</span>
+            </li>
+            <li className="flex items-start">
+              <i className="fas fa-check-circle text-teal-400 mt-1 mr-4"/>
+              <span className="text-gray-300">API integrations with existing business systems</span>
+            </li>
+          </ul>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-16">How It Works</h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-teal-400 to-blue-400 rounded-xl opacity-20 group-hover:opacity-30 transition"></div>
-              <div className="relative bg-gray-800 p-8 rounded-xl h-full">
-                <div className="w-12 h-12 bg-teal-400/10 text-teal-400 rounded-lg flex items-center justify-center mb-4">
-                  <i className="font-bold">1</i>
-                </div>
-                <h3 className="text-xl font-bold mb-4">Real-Time Package Registration</h3>
-                <p className="text-gray-400">
-                  Users register their package on SwiftRoute, automatically generating a unique QR code. This code acts as a digital fingerprint for the package, enabling seamless real-time tracking.
-                </p>
-              </div>
-            </div>
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-teal-400 to-blue-400 rounded-xl opacity-20 group-hover:opacity-30 transition"></div>
-              <div className="relative bg-gray-800 p-8 rounded-xl h-full">
-                <div className="w-12 h-12 bg-teal-400/10 text-teal-400 rounded-lg flex items-center justify-center mb-4">
-                  <i className="font-bold">2</i>
-                </div>
-                <h3 className="text-xl font-bold mb-4">Driver In-Car Update</h3>
-                <p className="text-gray-400">
-                  Drivers use their dedicated dashboard to scan the QR code during pickup and delivery. This instant scan updates the package’s status and location in real time, ensuring all parties are kept informed.
-                </p>
-              </div>
-            </div>
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-teal-400 to-blue-400 rounded-xl opacity-20 group-hover:opacity-30 transition"></div>
-              <div className="relative bg-gray-800 p-8 rounded-xl h-full">
-                <div className="w-12 h-12 bg-teal-400/10 text-teal-400 rounded-lg flex items-center justify-center mb-4">
-                  <i className="font-bold">3</i>
-                </div>
-                <h3 className="text-xl font-bold mb-4">Centralized Administration</h3>
-                <p className="text-gray-400">
-                  The SwiftRoute admin dashboard provides companies with full control over their operations. Administrators can manage packages, track driver locations, generate detailed reports, and optimize logistics from a single, intuitive interface.
-                </p>
-              </div>
-            </div>
+      <section id="how-it-works" className="py-28 bg-gray-900">
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="text-center mb-20">
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        className="text-4xl font-bold mb-6"
+      >
+        Streamlined <span className="bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">Workflow</span>
+      </motion.h2>
+      <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+        Our three-step process ensures seamless package tracking from sender to recipient
+      </p>
+    </div>
+
+    <div className="relative">
+      {/* Timeline line */}
+      <div className="hidden lg:block absolute left-1/2 h-full w-1 bg-gradient-to-b from-teal-400 to-blue-400 -ml-px"></div>
+      
+      {/* Step 1 */}
+      <div className="relative lg:grid lg:grid-cols-2 gap-12 mb-24">
+        <motion.div 
+          className="lg:pr-20 mb-10 lg:mb-0"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+        >
+          <div className="lg:hidden w-14 h-14 bg-teal-400/10 rounded-xl flex items-center justify-center mb-6">
+            <span className="text-2xl font-bold text-teal-400">1</span>
           </div>
-        </div>
-      </section>
+          <h3 className="text-2xl font-bold mb-4">Smart Package Registration</h3>
+          <p className="text-gray-400 mb-6">
+            Each package is registered with our system and assigned a unique encrypted QR code that serves as its digital fingerprint throughout the journey.
+          </p>
+          <ul className="space-y-3 text-gray-400">
+            <li className="flex items-center">
+              <i className="fas fa-qrcode text-teal-400 mr-3"/>
+              Unique package identifier
+            </li>
+            <li className="flex items-center">
+              <i className="fas fa-database text-teal-400 mr-3"/>
+              Encrypted tracking data
+            </li>
+          </ul>
+        </motion.div>
+        <motion.div 
+          className="lg:pl-20 relative"
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+        >
+          <div className="hidden lg:flex absolute -left-12 w-24 h-24 bg-teal-400/10 rounded-full items-center justify-center border-4 border-gray-900">
+            <span className="text-3xl font-bold text-teal-400">1</span>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-gray-700 shadow-xl">
+            <img 
+              src="/pkg.jpg" 
+              alt="Package Registration" 
+              className="w-full h-auto"
+            />
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Step 2 */}
+      <div className="relative lg:grid lg:grid-cols-2 gap-12 mb-24">
+        <motion.div 
+          className="lg:pl-20 order-last lg:order-first relative"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+        >
+          <div className="hidden lg:flex absolute -right-12 w-24 h-24 bg-blue-400/10 rounded-full items-center justify-center border-4 border-gray-900">
+            <span className="text-3xl font-bold text-blue-400">2</span>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-gray-700 shadow-xl">
+            <img 
+              src="/scan.jpg" 
+              alt="Driver Scanning" 
+              className="w-full h-auto"
+            />
+          </div>
+        </motion.div>
+        <motion.div 
+          className="lg:pr-20 mb-10 lg:mb-0 order-first lg:order-last"
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+        >
+          <div className="lg:hidden w-14 h-14 bg-blue-400/10 rounded-xl flex items-center justify-center mb-6">
+            <span className="text-2xl font-bold text-blue-400">2</span>
+          </div>
+          <h3 className="text-2xl font-bold mb-4">Real-Time Driver Updates</h3>
+          <p className="text-gray-400 mb-6">
+            Drivers scan packages at each checkpoint using our mobile app, updating the package's status and location in real-time.
+          </p>
+          <ul className="space-y-3 text-gray-400">
+            <li className="flex items-center">
+              <i className="fas fa-mobile-alt text-blue-400 mr-3"/>
+              Mobile scanning interface
+            </li>
+            <li className="flex items-center">
+              <i className="fas fa-sync-alt text-blue-400 mr-3"/>
+              Instant status updates
+            </li>
+          </ul>
+        </motion.div>
+      </div>
+
+      {/* Step 3 */}
+      <div className="relative lg:grid lg:grid-cols-2 gap-12">
+        <motion.div 
+          className="lg:pr-20 mb-10 lg:mb-0"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+        >
+          <div className="lg:hidden w-14 h-14 bg-purple-400/10 rounded-xl flex items-center justify-center mb-6">
+            <span className="text-2xl font-bold text-purple-400">3</span>
+          </div>
+          <h3 className="text-2xl font-bold mb-4">Centralized Administration</h3>
+          <p className="text-gray-400 mb-6">
+            Our comprehensive admin dashboard gives you complete visibility and control over your entire delivery network.
+          </p>
+          <ul className="space-y-3 text-gray-400">
+            <li className="flex items-center">
+              <i className="fas fa-chart-pie text-purple-400 mr-3"/>
+              Advanced analytics
+            </li>
+            <li className="flex items-center">
+              <i className="fas fa-users-cog text-purple-400 mr-3"/>
+              Team management
+            </li>
+          </ul>
+        </motion.div>
+        <motion.div 
+          className="lg:pl-20 relative"
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+        >
+          <div className="hidden lg:flex absolute -left-12 w-24 h-24 bg-purple-400/10 rounded-full items-center justify-center border-4 border-gray-900">
+            <span className="text-3xl font-bold text-purple-400">3</span>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-gray-700 shadow-xl">
+            <img 
+              src="/adm.PNG" 
+              alt="Admin Dashboard" 
+              className="w-full h-auto"
+            />
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Contact Section */}
       <section id="contact" className="py-20">
@@ -354,87 +595,307 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
-      <section className="py-20 bg-gray-800">
+      <section className="py-28 bg-gradient-to-b from-gray-800 to-gray-900">
   <div className="max-w-7xl mx-auto px-6">
-    <h2 className="text-3xl font-bold text-center mb-4 text-white">Campaigns & Programs</h2>
-    <p className="text-gray-400 text-center mb-16 max-w-2xl mx-auto">
-      Our initiatives designed to build trust and efficiency in Rwanda's logistics ecosystem. 
-      Explore our current programs driving transparency and accessibility nationwide.
-    </p>
+    <div className="text-center mb-20">
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        className="text-4xl font-bold mb-6"
+      >
+        Community <span className="bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">Initiatives</span>
+      </motion.h2>
+      <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+        Building Rwanda's logistics infrastructure through innovative programs
+      </p>
+    </div>
 
     <div className="grid md:grid-cols-3 gap-8">
-      {/* Trust Building Initiative */}
-      <div className="relative group p-6 bg-gray-800/50 rounded-xl hover:bg-gray-800/70 transition-colors">
-        <div className="absolute -inset-1 bg-gradient-to-r from-teal-400 to-blue-400 rounded-xl opacity-20 group-hover:opacity-30 transition"></div>
-        <i className="fas fa-handshake text-4xl text-teal-400 mb-4"></i>
-        <h3 className="text-xl font-bold mb-2 text-gray-100">Trust Building Initiative</h3>
-        <p className="text-gray-400 mb-4">
-          Community workshops and partner training programs to enhance delivery transparency nationwide.
-        </p>
-        <div className="space-y-2 mb-4">
-          <div className="flex items-center text-sm text-teal-400">
-            <i className="fas fa-map-marker-alt mr-2"></i>
-            <span>Active in 5 districts</span>
-          </div>
-          <div className="flex items-center text-sm text-gray-400">
-            <i className="fas fa-clock mr-2"></i>
-            <span>2023–2025 Program</span>
+      {/* Ndakwizeye Campaign */}
+      <motion.div 
+        className="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-teal-400/30 transition-all h-full"
+        whileHover={{ y: -5 }}
+      >
+        <div className="h-48 bg-gradient-to-r from-teal-900/30 to-blue-900/30 relative overflow-hidden">
+          <img 
+            src="/ndk.jpg" 
+            alt="Ndakwizeye Campaign" 
+            className="w-full h-full object-cover opacity-70"
+          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <i className="fas fa-handshake text-6xl text-white opacity-20 group-hover:opacity-30 transition-opacity"/>
           </div>
         </div>
-        <a href="#" className="mt-4 inline-block bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">
-          Learn More
-        </a>
-      </div>
+        <div className="p-8">
+          <div className="flex items-center mb-4">
+            <div className="w-12 h-12 bg-teal-400/10 rounded-lg flex items-center justify-center mr-4">
+              <i className="fas fa-hands-helping text-xl text-teal-400"/>
+            </div>
+            <h3 className="text-xl font-bold">#Ndakwizeye</h3>
+          </div>
+          <p className="text-gray-400 mb-6">
+            National trust-building initiative enhancing transparency in last-mile deliveries across Rwanda.
+          </p>
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="bg-gray-800/50 rounded-lg p-3">
+              <div className="text-teal-400 mb-1">
+                <i className="fas fa-map-marked-alt"/>
+              </div>
+              <div className="text-sm font-medium">5 Districts</div>
+              <div className="text-xs text-gray-500">Coverage</div>
+            </div>
+            <div className="bg-gray-800/50 rounded-lg p-3">
+              <div className="text-teal-400 mb-1">
+                <i className="fas fa-users"/>
+              </div>
+              <div className="text-sm font-medium">200+</div>
+              <div className="text-xs text-gray-500">Partners</div>
+            </div>
+          </div>
+          <button className="w-full py-3 bg-teal-600/10 hover:bg-teal-600/20 border border-teal-400/20 hover:border-teal-400/30 rounded-lg text-teal-400 transition-all flex items-center justify-center">
+            Learn More <i className="fas fa-arrow-right ml-2"/>
+          </button>
+        </div>
+      </motion.div>
 
-      {/* Rural Access Expansion */}
-      <div className="relative group p-6 bg-gray-800/50 rounded-xl hover:bg-gray-800/70 transition-colors">
-        <div className="absolute -inset-1 bg-gradient-to-r from-teal-400 to-blue-400 rounded-xl opacity-20 group-hover:opacity-30 transition"></div>
-        <i className="fas fa-truck text-4xl text-teal-400 mb-4"></i>
-        <h3 className="text-xl font-bold mb-2 text-gray-100">Rural Access Expansion</h3>
-        <p className="text-gray-400 mb-4">
-          Special logistics solutions for hard-to-reach areas with community pickup points.
-        </p>
-        <div className="space-y-2 mb-4">
-          <div className="flex items-center text-sm text-teal-400">
-            <i className="fas fa-users mr-2"></i>
-            <span>150+ Community Hubs</span>
-          </div>
-          <div className="flex items-center text-sm text-gray-400">
-            <i className="fas fa-percentage mr-2"></i>
-            <span>85% Coverage Achieved</span>
+      {/* Rural Access */}
+      <motion.div 
+        className="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-blue-400/30 transition-all h-full"
+        whileHover={{ y: -5 }}
+      >
+        <div className="h-48 bg-gradient-to-r from-blue-900/30 to-indigo-900/30 relative overflow-hidden">
+          <img 
+            src="/ndakwizeye rider.jpg" 
+            alt="Rural Access Program" 
+            className="w-full h-full object-cover opacity-70"
+          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <i className="fas fa-truck text-6xl text-white opacity-20 group-hover:opacity-30 transition-opacity"/>
           </div>
         </div>
-        <a href="#" className="mt-4 inline-block bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">
-          Learn More
-        </a>
-      </div>
+        <div className="p-8">
+          <div className="flex items-center mb-4">
+            <div className="w-12 h-12 bg-blue-400/10 rounded-lg flex items-center justify-center mr-4">
+              <i className="fas fa-mountain text-xl text-blue-400"/>
+            </div>
+            <h3 className="text-xl font-bold">Rural Access</h3>
+          </div>
+          <p className="text-gray-400 mb-6">
+            Expanding logistics networks to remote areas through community hubs and mobile solutions.
+          </p>
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="bg-gray-800/50 rounded-lg p-3">
+              <div className="text-blue-400 mb-1">
+                <i className="fas fa-hubspot"/>
+              </div>
+              <div className="text-sm font-medium">150+ Hubs</div>
+              <div className="text-xs text-gray-500">Nationwide</div>
+            </div>
+            <div className="bg-gray-800/50 rounded-lg p-3">
+              <div className="text-blue-400 mb-1">
+                <i className="fas fa-percentage"/>
+              </div>
+              <div className="text-sm font-medium">85%</div>
+              <div className="text-xs text-gray-500">Coverage</div>
+            </div>
+          </div>
+          <button className="w-full py-3 bg-blue-600/10 hover:bg-blue-600/20 border border-blue-400/20 hover:border-blue-400/30 rounded-lg text-blue-400 transition-all flex items-center justify-center">
+            Learn More <i className="fas fa-arrow-right ml-2"/>
+          </button>
+        </div>
+      </motion.div>
 
-      {/* SME Growth Program */}
-      <div className="relative group p-6 bg-gray-800/50 rounded-xl hover:bg-gray-800/70 transition-colors">
-        <div className="absolute -inset-1 bg-gradient-to-r from-teal-400 to-blue-400 rounded-xl opacity-20 group-hover:opacity-30 transition"></div>
-        <i className="fas fa-store text-4xl text-teal-400 mb-4"></i>
-        <h3 className="text-xl font-bold mb-2 text-gray-100">SME Growth Program</h3>
-        <p className="text-gray-400 mb-4">
-          Subsidized logistics solutions for small businesses with training and support.
-        </p>
-        <div className="space-y-2 mb-4">
-          <div className="flex items-center text-sm text-teal-400">
-            <i className="fas fa-chart-line mr-2"></i>
-            <span>500+ Businesses Enrolled</span>
-          </div>
-          <div className="flex items-center text-sm text-gray-400">
-            <i className="fas fa-hand-holding-usd mr-2"></i>
-            <span>40% Cost Reduction</span>
+      {/* SME Program */}
+      <motion.div 
+        className="group relative bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700 hover:border-purple-400/30 transition-all h-full"
+        whileHover={{ y: -5 }}
+      >
+        <div className="h-48 bg-gradient-to-r from-purple-900/30 to-indigo-900/30 relative overflow-hidden">
+          <img 
+            src="/w.jpeg" 
+            alt="SME Growth Program" 
+            className="w-full h-full object-cover opacity-70"
+          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <i className="fas fa-store text-6xl text-white opacity-20 group-hover:opacity-30 transition-opacity"/>
           </div>
         </div>
-        <a href="#" className="mt-4 inline-block bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg text-sm transition-colors cursor-pointer">
-          Learn More
-        </a>
-      </div>
+        <div className="p-8">
+          <div className="flex items-center mb-4">
+            <div className="w-12 h-12 bg-purple-400/10 rounded-lg flex items-center justify-center mr-4">
+              <i className="fas fa-chart-line text-xl text-purple-400"/>
+            </div>
+            <h3 className="text-xl font-bold">SME Growth</h3>
+          </div>
+          <p className="text-gray-400 mb-6">
+            Empowering small businesses with subsidized logistics solutions and training programs.
+          </p>
+          <div className="grid grid-cols-2 gap-4 mb-6">
+            <div className="bg-gray-800/50 rounded-lg p-3">
+              <div className="text-purple-400 mb-1">
+                <i className="fas fa-building"/>
+              </div>
+              <div className="text-sm font-medium">500+</div>
+              <div className="text-xs text-gray-500">Businesses</div>
+            </div>
+            <div className="bg-gray-800/50 rounded-lg p-3">
+              <div className="text-purple-400 mb-1">
+                <i className="fas fa-coins"/>
+              </div>
+              <div className="text-sm font-medium">40%</div>
+              <div className="text-xs text-gray-500">Cost Savings</div>
+            </div>
+          </div>
+          <button className="w-full py-3 bg-purple-600/10 hover:bg-purple-600/20 border border-purple-400/20 hover:border-purple-400/30 rounded-lg text-purple-400 transition-all flex items-center justify-center">
+            Learn More <i className="fas fa-arrow-right ml-2"/>
+          </button>
+        </div>
+      </motion.div>
     </div>
   </div>
 </section>
+<section className="relative py-28 bg-gradient-to-br from-teal-900/30 to-blue-900/30 overflow-hidden">
+  {/* Background elements */}
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute -top-32 -left-32 w-96 h-96 bg-teal-400 rounded-full blur-3xl opacity-10"></div>
+    <div className="absolute -bottom-48 -right-48 w-96 h-96 bg-blue-400 rounded-full blur-3xl opacity-10"></div>
+  </div>
 
+  <div className="max-w-7xl mx-auto px-6">
+    <motion.div 
+      className="text-center mb-20"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
+      <h2 className="text-5xl font-bold mb-6">
+        Make <span className="bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent">SwiftRoute</span><br/>
+        Your Daily Delivery Companion
+      </h2>
+      <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+        Join millions who trust SwiftRoute for seamless logistics. Enjoy exclusive rewards, priority support, 
+        and special benefits as a regular user.
+      </p>
+    </motion.div>
+
+    <div className="grid lg:grid-cols-2 gap-16 items-center">
+      {/* App Preview */}
+      <motion.div 
+        className="relative"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-400/10 to-blue-400/10 rounded-3xl -z-10"/>
+        <div className="rounded-2xl overflow-hidden border border-gray-700/50 shadow-2xl">
+          <img 
+            src="/mocupim.png" 
+            alt="SwiftRoute Mobile App Preview" 
+            className="w-full h-auto"
+          />
+        </div>
+      </motion.div>
+
+      {/* Benefits & Promotions */}
+      <motion.div 
+        className="space-y-8"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+      >
+        <div className="p-8 bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-teal-400/20">
+          <div className="flex items-start mb-4">
+            <div className="w-12 h-12 bg-teal-400/10 rounded-lg flex items-center justify-center mr-6">
+              <i className="fas fa-gift text-xl text-teal-400"/>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-2">Loyalty Rewards Program</h3>
+              <p className="text-gray-400">
+                Earn points with every delivery and redeem them for exclusive benefits:
+              </p>
+            </div>
+          </div>
+          <ul className="space-y-4 pl-18">
+            <li className="flex items-center">
+              <i className="fas fa-check-circle text-teal-400 mr-3"/>
+              <span className="text-gray-300">Free priority deliveries</span>
+            </li>
+            <li className="flex items-center">
+              <i className="fas fa-check-circle text-teal-400 mr-3"/>
+              <span className="text-gray-300">Exclusive partner discounts</span>
+            </li>
+            <li className="flex items-center">
+              <i className="fas fa-check-circle text-teal-400 mr-3"/>
+              <span className="text-gray-300">VIP customer support</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Referral Program */}
+          <div className="p-6 bg-gray-900/50 backdrop-blur-sm rounded-xl border border-teal-400/20">
+            <div className="flex items-center mb-4">
+              <div className="w-10 h-10 bg-teal-400/10 rounded-lg flex items-center justify-center mr-4">
+                <i className="fas fa-user-plus text-teal-400"/>
+              </div>
+              <h4 className="text-lg font-bold">Refer & Earn</h4>
+            </div>
+            <p className="text-gray-400 text-sm">
+              Get $10 credit for every friend who joins SwiftRoute
+            </p>
+          </div>
+
+          {/* Streak Rewards */}
+          <div className="p-6 bg-gray-900/50 backdrop-blur-sm rounded-xl border border-blue-400/20">
+            <div className="flex items-center mb-4">
+              <div className="w-10 h-10 bg-blue-400/10 rounded-lg flex items-center justify-center mr-4">
+                <i className="fas fa-fire text-blue-400"/>
+              </div>
+              <h4 className="text-lg font-bold">Daily Streak</h4>
+            </div>
+            <p className="text-gray-400 text-sm">
+              Maintain 7-day streak for bonus rewards
+            </p>
+          </div>
+        </div>
+
+        {/* App Download CTA */}
+        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            className="px-8 py-4 bg-teal-600 hover:bg-teal-500 rounded-xl flex items-center gap-3 w-full sm:w-auto"
+          >
+            <i className="fab fa-apple text-2xl"/>
+            <div className="text-left">
+              <span className="block text-xs">Download on</span>
+              <span className="text-lg font-semibold">App Store</span>
+            </div>
+          </motion.button>
+
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            className="px-8 py-4 bg-gray-800 hover:bg-gray-700 rounded-xl flex items-center gap-3 w-full sm:w-auto"
+          >
+            <i className="fab fa-google-play text-2xl"/>
+            <div className="text-left">
+              <span className="block text-xs">Get it on</span>
+              <span className="text-lg font-semibold">Google Play</span>
+            </div>
+          </motion.button>
+        </div>
+
+        {/* Trust Badges */}
+        <div className="flex items-center justify-center gap-6 mt-8 opacity-75">
+          <div className="flex items-center">
+            <i className="fas fa-shield-alt text-teal-400 mr-2"/>
+            <span className="text-sm">SSL Secure</span>
+          </div>
+          <div className="flex items-center">
+            <i className="fas fa-star text-yellow-400 mr-2"/>
+            <span className="text-sm">4.9/5 Ratings</span>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* FAQ Section */}
       <section id="faq" className="bg-gray-800 py-20">

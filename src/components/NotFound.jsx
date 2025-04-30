@@ -30,7 +30,7 @@ export default function NotFound() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          The page you're looking for seems to have vanished into the digital void.
+          The page you're looking for seems to have been vanished into the digital void.
         </motion.p>
 
         <motion.button
