@@ -652,9 +652,9 @@ const Home = () => {
               <div className="text-xs text-gray-500">Partners</div>
             </div>
           </div>
-          <button className="w-full py-3 bg-teal-600/10 hover:bg-teal-600/20 border border-teal-400/20 hover:border-teal-400/30 rounded-lg text-teal-400 transition-all flex items-center justify-center">
+          <Link  to="/ndakwizeye" className="w-full py-3 bg-teal-600/10 hover:bg-teal-600/20 border border-teal-400/20 hover:border-teal-400/30 rounded-lg text-teal-400 transition-all flex items-center justify-center">
             Learn More <i className="fas fa-arrow-right ml-2"/>
-          </button>
+          </Link>
         </div>
       </motion.div>
 
@@ -787,7 +787,7 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-teal-400/10 to-blue-400/10 rounded-3xl -z-10"/>
         <div className="rounded-2xl overflow-hidden border border-gray-700/50 shadow-2xl">
           <img 
-            src="/mocupim.png" 
+            src="/moc.png" 
             alt="SwiftRoute Mobile App Preview" 
             className="w-full h-auto"
           />

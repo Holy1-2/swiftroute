@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import ContactDetails from "./components/contact"
 import NotFound from "./components/NotFound"; // NotFound Component for unknown routes
 import PackageStatusCard from "./components/PackageStatusCard";
+import Campaign from "./components/ndakwizeye";
 import "./App.css";
 
 // Lazy load components for code splitting
 const Main = lazy(() => import("./components/Main"));
-const PrivacyPolicy = lazy(() => import("./components/Privacy"));
+const PrivacyPolicy = lazy(() => import("./components/privacy"));
 const SwiftLogin = lazy(() => import("./components/Login"));
 
 // Loader Component
@@ -94,7 +95,7 @@ const Layout = () => {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/login" element={<SwiftLogin />} />
             <Route path="/onboarding" element={<ContactDetails />} />
-
+          <Route path="/ndakwizeye"   element={<Campaign/>}   />
             <Route path="/PackageStatusCard" element={<PackageStatusCard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
