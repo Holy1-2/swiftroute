@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.svg-background {
+    position: absolute;
+    z-index: 0;
+    opacity: 0.1;
+  }
+  
+  .blur-backdrop {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }

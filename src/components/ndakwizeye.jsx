@@ -5,7 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faHandsHelping, faBullseye, faUserPlus, faShareAlt,
   faHandshake, faCommentDots, faMicrophone, faRobot,
-  faQrcode, faGift, faFeather, faCheck, faShare
+  faQrcode, faGift, faFeather, faCheck, faShare,faShieldAlt,faClock,faUserCheck,faLock,
+  faBoxOpen,
+  faBoxes
 } from '@fortawesome/free-solid-svg-icons';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -80,7 +82,7 @@ const Campaign = () => {
       </svg>
 
       {/* Navigation */}
-      <nav className="container mx-auto px-6 py-8 backdrop-blur-lg sticky top-0 z-50">
+      <nav className="fixed container mx-auto px-6 py-8 backdrop-blur-lg sticky top-0 z-50">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-to-r from-teal-400 to-blue-400 rounded-lg" />
@@ -157,7 +159,7 @@ const Campaign = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="relative z-10 rounded-3xl overflow-hidden">
-                <img src="/ndakwizeye-rider.jpg" 
+                <img src="/ndakwizeye rider.jpg" 
                      className="w-full h-96 object-cover" 
                      alt="Trust Tokens" />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80" />
@@ -326,7 +328,86 @@ const Campaign = () => {
           </div>
         </div>
       </section>
+{/* You Deserve to Trust Section */}
+<section className="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+  <div className="max-w-7xl mx-auto px-6">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        You Deserve to 
+        <span className="bg-gradient-to-r from-teal-400 to-blue-400 bg-clip-text text-transparent"> Trust</span>
+      </h2>
+      <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+        At Swift Route, we're redefining trust in logistics and delivery through transparent operations and verifiable interactions
+      </p>
+    </div>
 
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+      {[
+        {
+          icon: faShieldAlt,
+          title: "Real-Time Verification",
+          text: "QR-code enabled tracking for every delivery milestone"
+        },
+        {
+          icon: faClock,
+          title: "Instant Updates",
+          text: "Get notified at every package handoff stage"
+        },
+        {
+          icon: faUserCheck,
+          title: "Driver Verification",
+          text: "Biometrically authenticated delivery personnel"
+        },
+        {
+          icon: faLock,
+          title: "Secure Chain",
+          text: "Blockchain-backed transaction records"
+        }
+      ].map((item, index) => (
+        <div key={index} className="p-8 bg-gray-900/50 rounded-2xl border border-teal-400/20 hover:-translate-y-2 transition">
+          <div className="w-12 h-12 bg-teal-400/10 rounded-xl flex items-center justify-center mb-6">
+            <FontAwesomeIcon icon={item.icon} className="text-teal-400 text-xl" />
+          </div>
+          <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+          <p className="text-gray-400">{item.text}</p>
+        </div>
+      ))}
+    </div>
+
+    {/* Why Trust Matters */}
+    <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative">
+        <div className="w-full h-96 bg-gradient-to-br from-teal-400/20 to-blue-400/20 rounded-3xl blur-[100px] opacity-30" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <FontAwesomeIcon icon={faBoxes} className="text-teal-400 text-9xl opacity-20" />
+        </div>
+      </div>
+      
+      <div>
+        <h3 className="text-3xl font-bold mb-8">
+          Why Trust Matters in 
+          <span className="text-blue-400"> Logistics</span>
+        </h3>
+        <div className="space-y-8">
+          {[
+            "Builds long-term customer relationships through reliability",
+            "Reduces conflict and dispute resolution costs",
+            "Enables seamless cross-border transactions",
+            "Creates community-driven delivery networks",
+            "Accelerates adoption of new technologies"
+          ].map((point, index) => (
+            <div key={index} className="flex items-start gap-4">
+              <div className="w-6 h-6 bg-teal-400/10 rounded-full flex items-center justify-center mt-1">
+                <FontAwesomeIcon icon={faCheck} className="text-teal-400 text-sm" />
+              </div>
+              <p className="text-gray-400 text-lg">{point}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       {/* Footer */}
       <footer className="bg-gray-900/80 py-12">
         <div className="container mx-auto px-6 text-center">
@@ -337,7 +418,7 @@ const Campaign = () => {
               </a>
             ))}
           </div>
-          <p className="text-gray-400">&copy; 2023 Ndakwizeye Campaign. All rights reserved.</p>
+          <p className="text-gray-400">&copy; 2025 Ndakwizeye Campaign. All rights reserved.</p>
         </div>
       </footer>
     </div>

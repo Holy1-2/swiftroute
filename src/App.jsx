@@ -4,7 +4,9 @@ import ContactDetails from "./components/contact"
 import NotFound from "./components/NotFound"; // NotFound Component for unknown routes
 import PackageStatusCard from "./components/PackageStatusCard";
 import Campaign from "./components/ndakwizeye";
+
 import "./App.css";
+import Byiringiro from "./components/byiringiro";
 
 // Lazy load components for code splitting
 const Main = lazy(() => import("./components/Main"));
@@ -97,6 +99,7 @@ const Layout = () => {
             <Route path="/onboarding" element={<ContactDetails />} />
           <Route path="/ndakwizeye"   element={<Campaign/>}   />
             <Route path="/PackageStatusCard" element={<PackageStatusCard />} />
+            <Route path="/byiringiro"  element={<Byiringiro/>}  />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

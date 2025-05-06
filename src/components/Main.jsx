@@ -700,7 +700,7 @@ const Home = () => {
             </div>
           </div>
           <button className="w-full py-3 bg-blue-600/10 hover:bg-blue-600/20 border border-blue-400/20 hover:border-blue-400/30 rounded-lg text-blue-400 transition-all flex items-center justify-center">
-            Learn More <i className="fas fa-arrow-right ml-2"/>
+           coming soon <i className="fas fa-lock ml-2"/>
           </button>
         </div>
       </motion.div>
