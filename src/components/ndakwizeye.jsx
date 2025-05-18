@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons';
 import { 
-  faHandsHelping, faBullseye, faUserPlus, faShareAlt,
+  faHandsHelping, faBullseye, faUserPlus, faShareAlt,faHeart,
   faHandshake, faCommentDots, faMicrophone, faRobot,
   faQrcode, faGift, faFeather, faCheck, faShare,faShieldAlt,faClock,faUserCheck,faLock,
   faBoxOpen,
@@ -13,6 +14,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 const STORAGE_KEY = 'ndakwizeyeStories';
+const LIKES_KEY = 'ndakwizeyeLikes';
 
 const heroSlides = [
   {
@@ -55,7 +57,60 @@ const roadmapPhases = [
 const Campaign = () => {
   const [stories, setStories] = useState([]);
   const [formData, setFormData] = useState({ name: '', story: '' });
+  const [likedStories, setLikedStories] = useState(new Set());
 
+  useEffect(() => {
+    const savedStories = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    const savedLikes = JSON.parse(localStorage.getItem(LIKES_KEY)) || [];
+    setStories(savedStories);
+    setLikedStories(new Set(savedLikes));
+  }, []);
+
+  const handleLike = (storyId) => {
+    const newLikes = new Set(likedStories);
+    const updatedStories = stories.map(story => {
+      if (story.id === storyId) {
+        if (newLikes.has(storyId)) {
+          newLikes.delete(storyId);
+          return { ...story, likes: story.likes - 1 };
+        } else {
+          newLikes.add(storyId);
+          return { ...story, likes: (story.likes || 0) + 1 };
+        }
+      }
+      return story;
+    });
+
+    setLikedStories(newLikes);
+    setStories(updatedStories);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedStories));
+    localStorage.setItem(LIKES_KEY, JSON.stringify([...newLikes]));
+  };
+
+ const handleShare = async (story) => {
+  try {
+    const shareContent = `${story?.story || ''}\n\n- ${story?.name || 'Anonymous'}\n${window.location.href}`;
+    
+    const shareData = {
+      title: `#Ndakwizeye Story`,
+      text: shareContent,
+    };
+
+    if (navigator.share) {
+      await navigator.share(shareData);
+    } else if (navigator.clipboard) {
+      await navigator.clipboard.writeText(shareContent);
+      alert('Story content copied to clipboard!');
+    } else {
+      alert('Sharing not supported in this browser');
+    }
+  } catch (err) {
+    console.error('Sharing failed:', err);
+    alert('Sharing failed. Please try again.');
+  }
+};
+
+    
   useEffect(() => {
     const savedStories = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
     setStories(savedStories);
@@ -252,7 +307,8 @@ const Campaign = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {stories.map((story) => (
               <div key={story.id} className="group relative p-6 bg-gray-900/20 rounded-2xl hover:bg-gray-900/40 transition-all duration-300">
-                <div className="absolute inset-0 border border-teal-400/20 rounded-2xl opacity-20 group-hover:opacity-40 transition-all" />
+                <div className="absolute inset-0 border border-teal-400/20 rounded-2xl opacity-20 group-hover:opacity-40 transition-all pointer-events-none" />
+                  <div className="relative z-10"> 
                 <div className="flex items-start gap-4 mb-6">
                   <div className="w-12 h-12 bg-gradient-to-r from-teal-400 to-blue-400 rounded-xl flex items-center justify-center text-lg font-bold">
                     {story.name[0].toUpperCase()}
@@ -269,20 +325,52 @@ const Campaign = () => {
                   </div>
                 </div>
                 <p className="text-gray-300/90 leading-relaxed mb-6">{story.story}</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex gap-3">
-                    <button className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-800/50 hover:bg-gray-800/80 transition-all">
-                      <FontAwesomeIcon icon={faShare} className="text-sm" />
-                      <span className="text-sm">Share</span>
-                    </button>
-                  </div>
-                </div>
+                  <div className="flex items-center justify-between">
+                    
+  <div className="flex gap-3">
+    <button 
+      onClick={() => handleLike(story.id)}
+      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-800/50 hover:bg-gray-800/80 transition-all cursor-pointer"
+    >
+      <FontAwesomeIcon 
+        icon={likedStories.has(story.id) ? faHeartSolid : faHeart} 
+        className={`text-sm ${likedStories.has(story.id) ? 'text-red-500 animate-pulse' : 'text-gray-400 hover:text-red-300'}`}
+      />
+      <span className="text-sm">{story.likes || 0}</span>
+    </button>
+    <button 
+  onClick={(e) => {
+    e.stopPropagation();
+    if (story?.id) handleShare(story);
+  }}
+  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-800/50 hover:bg-gray-800/80 transition-all cursor-pointer group"
+  disabled={!story}
+>
+  <FontAwesomeIcon 
+    icon={faShare} 
+    className={`text-sm ${
+      story 
+        ? 'text-gray-400 group-hover:text-blue-400' 
+        : 'text-gray-600 cursor-not-allowed'
+    } transition-colors`}
+  />
+  <span className={`text-sm ${
+    story 
+      ? 'text-gray-400 group-hover:text-blue-300' 
+      : 'text-gray-600 cursor-not-allowed'
+  } transition-colors`}>
+    Share
+  </span>
+</button>
+  </div>
+</div>
+</div>
               </div>
             ))}
           </div>
         </div>
       </section>
-
+  
       {/* Roadmap Section */}
       <section id="roadmap" className="py-20 bg-gray-800/50">
         <div className="max-w-7xl mx-auto">
