@@ -1,6 +1,5 @@
 import React, { Suspense, lazy, useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import ContactDetails from "./components/contact"
 import NotFound from "./components/NotFound"; // NotFound Component for unknown routes
 import PackageStatusCard from "./components/PackageStatusCard";
 import Campaign from "./components/ndakwizeye";
@@ -96,7 +95,6 @@ const Layout = () => {
             <Route path="/" element={<Main />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/login" element={<SwiftLogin />} />
-            <Route path="/onboarding" element={<ContactDetails />} />
           <Route path="/ndakwizeye"   element={<Campaign/>}   />
             <Route path="/PackageStatusCard" element={<PackageStatusCard />} />
             <Route path="/byiringiro"  element={<Byiringiro/>}  />
